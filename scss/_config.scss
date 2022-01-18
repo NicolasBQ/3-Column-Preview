@@ -1,0 +1,33 @@
+$sedan-section: hsl(31, 77%, 52%);
+$suvs-section: hsl(184, 100%, 22%);
+$luxury-section: hsl(179, 100%, 13%);
+$transparent-white: hsla(0, 0%, 100%, 0.75);
+$white: hsl(100, 100, 100);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@function set-button-color($section) {
+    @if($section == 'sedans') {
+        @return $sedan-section;
+    }
+
+    @if($section == 'suvs') {
+        @return $suvs-section;
+    }
+
+    @if($section == 'luxury') {
+        @return $luxury-section;
+    }
+}
+
+@mixin for-laptop-up {
+    @media screen and (min-width:1000px) {
+        @content;
+    }
+}
